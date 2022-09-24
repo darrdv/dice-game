@@ -2,6 +2,8 @@ html, body {
   --color-1: #a8e6cf;
   --color-2: #dcedc1; 
   --color-3: #ffd3b6; 
+  --color-4: #ffaaa5; 
+  --color-5: #ff8b94;
   margin: 0;
   padding: 0;
 }
@@ -39,4 +41,30 @@ body {
   display: block;
   align-items: center;
   justify-content: center;
+}
+
+button {
+  color: #fff;
+  padding: 20px 30px;
+  font-size: 20px;
+  margin: 40px auto;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#rollBtn {
+  background-color: var(--color-5);
+}
+
+#resetBtn {
+  background-color: var(--color-4);
+}
+
+button:focus {
+  outline: none;
+}
+
+#resetBtn {
+  display: none;
 }
