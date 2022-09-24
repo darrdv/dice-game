@@ -19,11 +19,15 @@ rollBtn.addEventListener("click", function() {
     player1Dice.textContent = randomNumber;
     player1Score += randomNumber;
     player1ScoreBoard.textContent = player1Score;
+    player1Dice.classList.remove("active")
+    player2Dice.classList.add("active")
 
   }else{
     player2Dice.textContent = randomNumber;
     player2Score += randomNumber;
     player2ScoreBoard.textContent = player2Score;
+    player2Dice.classList.remove("active")
+    player1Dice.classList.add("active")
   }
 
   if(player1Score >= 20){
