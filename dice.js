@@ -1,6 +1,6 @@
 let player1Score = 0;
 let player2Score = 0;
-let player1Turn = true;
+let player1Turn = Math.random() > 0.5;
 
 // Create variables to store references to the necessary DOM nodes
 const player1Dice = document.getElementById("player1Dice")
@@ -21,14 +21,21 @@ function reset(){
   rollBtn.style.display = "block"
   player1Score = 0
   player2Score = 0
-  player1Turn = true
-  message.textContent = "Player 1 Turn"
-  player2Dice.classList.remove("active")
-  player1Dice.classList.add("active")
+  player1Turn = Math.random() > 0.5;
+  if(player1Turn){
+    message.textContent = "Player 1 Turn"
+    player2Dice.classList.remove("active")
+    player1Dice.classList.add("active")
+  }
+  else{
+    message.textContent = "Player 2 Turn"
+    player1Dice.classList.remove("active")
+    player2Dice.classList.add("active")
+  }
   player1Dice.textContent = '-'
   player2Dice.textContent = '-'
-  player1Scoreboard.textContent = '0'
-  player2Scoreboard.textContent = '0'
+  player1ScoreBoard.textContent = '0'
+  player2ScoreBoard.textContent = '0'
 }
 
 /* Hook up a click event listener to the Roll Dice Button. */
@@ -65,3 +72,12 @@ rollBtn.addEventListener("click", function() {
 });
 
 resetBtn.addEventListener("click", reset);
+
+//improvements
+
+//1.random starts -- sometimes player 2 will start
+//'Player 2 will begin' 
+
+//2. Changing the colours
+
+//3. Use dots on dice (flexgrid)
