@@ -11,6 +11,10 @@ const message = document.getElementById("message")
 const rollBtn = document.getElementById("rollBtn")
 const resetBtn = document.getElementById("resetBtn")
 
+function drawDieFace(rollNum){
+
+}
+
 function showDisplayButton() {
   rollBtn.style.display = "none"
   resetBtn.style.display = "block"

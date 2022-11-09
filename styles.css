@@ -1,7 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
 html, body { 
   --color-1: #a8e6cf;
   --color-2: #dcedc1; 
-  --color-3: #ffd3b6; 
+  --color-3: #e7e7e7; 
   --color-4: #ffaaa5; 
   --color-5: #ff8b94;
   margin: 0;
@@ -31,16 +35,18 @@ body {
   justify-content: space-around;
 }
 
+
 .dice {
-  border-radius: 10px;
-  width: 100px;
-  height: 100px;
-  background-color: var(--color-3);
+  
+  border-radius: 10%; 
+  /*width: 104px;
+  height: 104px; */
+ /* background-color: var(--color-3); */
   margin: 0 auto;
-  font-size: 80px;
-  display: block;
+  /*font-size: 80px; */
+  display: block; 
   align-items: center;
-  justify-content: center;
+  justify-content: left;
 }
 
 button {
