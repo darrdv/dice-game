@@ -138,6 +138,9 @@ rollBtn.addEventListener("click", function() {
 
   if(player1Turn){
     //player1Dice.textContent = randomNumber;
+    if (player1Dice.hasChildNodes()) {
+      player1Dice.removeChild(player1Dice.children[0]);
+    }
     player1Dice.appendChild(dieFace);
     player1Score += randomNumber;
     player1ScoreBoard.textContent = player1Score;
@@ -147,6 +150,9 @@ rollBtn.addEventListener("click", function() {
 
   }else{
     //player2Dice.textContent = randomNumber;
+    if (player2Dice.hasChildNodes()) {
+      player2Dice.removeChild(player2Dice.children[0]);
+    }
     player2Dice.appendChild(dieFace);
     player2Score += randomNumber;
     player2ScoreBoard.textContent = player2Score;
