@@ -11,9 +11,98 @@ const message = document.getElementById("message")
 const rollBtn = document.getElementById("rollBtn")
 const resetBtn = document.getElementById("resetBtn")
 
-function drawDieFace(rollNum){
+const drawDieFace = (rollnum) => {
+  const diceElement = document.createElement('div');
+  
+  switch (rollnum) {
 
+    case 4:
+    case 6: 
+      if(rollnum === 4){
+        for (let i=0; i < 2; i++) {      
+          const colElement = document.createElement('div');
+          colElement.classList.add('column');
+          for (let j=0; j < 2; j++) { 
+            pipElement = document.createElement('span');
+            pipElement.classList.add('pip');
+            colElement.appendChild(pipElement);
+          }
+          diceElement.classList.add('fourth-face');
+          diceElement.appendChild(colElement); 
+        }
+      }
+      else{
+        for (let i=0; i < 2; i++) {
+          const colElement = document.createElement('div');
+          colElement.classList.add('column');
+          for (let j=0; j < 3; j++) { 
+            pipElement = document.createElement('span');
+            pipElement.classList.add('pip');
+            colElement.appendChild(pipElement);
+          }
+          diceElement.classList.add('sixth-face');
+          diceElement.appendChild(colElement);  
+        }
+      }    
+      break;
+
+    case 5:
+      diceElement.classList.add('fifth-face');
+      for (let i=0; i < 2; i++) {      
+        const colElement = document.createElement('div');
+        colElement.classList.add('column');
+        for (let j=0; j < 2; j++) { 
+          pipElement = document.createElement('span');
+          pipElement.classList.add('pip');
+          colElement.appendChild(pipElement);
+        }
+        diceElement.appendChild(colElement); 
+      } 
+
+      const colElement2 = document.createElement('div');
+      colElement2.classList.add('column');
+      const pipElement2 = document.createElement('span');
+      pipElement2.classList.add('pip');
+      colElement2.appendChild(pipElement2);
+      diceElement.appendChild(colElement2); 
+
+      for (let i=0; i < 2; i++) {      
+        const colElement = document.createElement('div');
+        colElement.classList.add('column');
+        for (let j=0; j < 2; j++) { 
+          pipElement = document.createElement('span');
+          pipElement.classList.add('pip');
+          colElement.appendChild(pipElement);
+        }
+        diceElement.appendChild(colElement);
+      } 
+      break;
+
+    case 1:
+    case 2:
+    case 3:
+      //No column div, three pip spans
+      if(rollnum === 1){
+        diceElement.classList.add('first-face');
+      }
+      else if(rollnum === 2){
+        diceElement.classList.add('second-face');
+      }
+      else{
+        diceElement.classList.add('third-face');
+      }
+
+      for (let i=0; i < rollnum; i++) {
+        const pipElement = document.createElement('span');
+        pipElement.classList.add('pip');
+        diceElement.appendChild(pipElement); 
+      }
+      break; 
+  }
+  return diceElement;
 }
+
+
 
 function showDisplayButton() {
   rollBtn.style.display = "none"
@@ -45,9 +134,11 @@ function reset(){
 /* Hook up a click event listener to the Roll Dice Button. */
 rollBtn.addEventListener("click", function() {
   const randomNumber = Math.floor(Math.random() * 6) + 1
+  const dieFace = drawDieFace(randomNumber);
 
   if(player1Turn){
-    player1Dice.textContent = randomNumber;
+    //player1Dice.textContent = randomNumber;
+    player1Dice.appendChild(dieFace);
     player1Score += randomNumber;
     player1ScoreBoard.textContent = player1Score;
     player1Dice.classList.remove("active");
@@ -55,7 +146,8 @@ rollBtn.addEventListener("click", function() {
     message.textContent = "Player 2 Turn";
 
   }else{
-    player2Dice.textContent = randomNumber;
+    //player2Dice.textContent = randomNumber;
+    player2Dice.appendChild(dieFace);
     player2Score += randomNumber;
     player2ScoreBoard.textContent = player2Score;
     player2Dice.classList.remove("active");
