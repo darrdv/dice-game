@@ -15,7 +15,7 @@ const drawDieFace = (rollnum) => {
   const diceElement = document.createElement('div');
   
   switch (rollnum) {
-
+    //two column divs, the four-face has 2 pips in each column, the sixth-face has 3.
     case 4:
     case 6: 
       if(rollnum === 4){
@@ -46,7 +46,8 @@ const drawDieFace = (rollnum) => {
       }    
       break;
 
-    case 5:
+    //three column divs, first and last have two pips each, the middle has one pip span
+      case 5:
       diceElement.classList.add('fifth-face');
       for (let i=0; i < 3; i++) { 
         const colElement = document.createElement('div');
@@ -66,27 +67,12 @@ const drawDieFace = (rollnum) => {
             diceElement.appendChild(colElement);
         }
       }
-
-
-
-      /*
-      for (let i=0; i < 2; i++) {      
-        const colElement = document.createElement('div');
-        colElement.classList.add('column');
-        for (let j=0; j < 2; j++) { 
-          const pipElement = document.createElement('span');
-          pipElement.classList.add('pip');
-          colElement.appendChild(pipElement);
-        }
-        diceElement.appendChild(colElement); 
-      } 
-      */
       break;
 
     case 1:
     case 2:
     case 3:
-      //No column div, three pip spans
+     
       if(rollnum === 1){
         diceElement.classList.add('first-face');
       }
@@ -97,6 +83,7 @@ const drawDieFace = (rollnum) => {
         diceElement.classList.add('third-face');
       }
 
+       //No column divs, up to three pip spans
       for (let i=0; i < rollnum; i++) {
         const pipElement = document.createElement('span');
         pipElement.classList.add('pip');
