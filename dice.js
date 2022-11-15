@@ -23,7 +23,7 @@ const drawDieFace = (rollnum) => {
           const colElement = document.createElement('div');
           colElement.classList.add('column');
           for (let j=0; j < 2; j++) { 
-            pipElement = document.createElement('span');
+            const pipElement = document.createElement('span');
             pipElement.classList.add('pip');
             colElement.appendChild(pipElement);
           }
@@ -36,7 +36,7 @@ const drawDieFace = (rollnum) => {
           const colElement = document.createElement('div');
           colElement.classList.add('column');
           for (let j=0; j < 3; j++) { 
-            pipElement = document.createElement('span');
+            const pipElement = document.createElement('span');
             pipElement.classList.add('pip');
             colElement.appendChild(pipElement);
           }
@@ -48,34 +48,39 @@ const drawDieFace = (rollnum) => {
 
     case 5:
       diceElement.classList.add('fifth-face');
+      for (let i=0; i < 3; i++) { 
+        const colElement = document.createElement('div');
+        colElement.classList.add('column');
+        if(i === 1){
+          const pipElement = document.createElement('span');
+          pipElement.classList.add('pip');
+          colElement.appendChild(pipElement);
+          diceElement.appendChild(colElement);
+        }
+        else{
+            for (let j=0; j < 2; j++) { 
+              const pipElement = document.createElement('span');
+              pipElement.classList.add('pip');
+              colElement.appendChild(pipElement);
+            }
+            diceElement.appendChild(colElement);
+        }
+      }
+
+
+
+      /*
       for (let i=0; i < 2; i++) {      
         const colElement = document.createElement('div');
         colElement.classList.add('column');
         for (let j=0; j < 2; j++) { 
-          pipElement = document.createElement('span');
+          const pipElement = document.createElement('span');
           pipElement.classList.add('pip');
           colElement.appendChild(pipElement);
         }
         diceElement.appendChild(colElement); 
       } 
-
-      const colElement2 = document.createElement('div');
-      colElement2.classList.add('column');
-      const pipElement2 = document.createElement('span');
-      pipElement2.classList.add('pip');
-      colElement2.appendChild(pipElement2);
-      diceElement.appendChild(colElement2); 
-
-      for (let i=0; i < 2; i++) {      
-        const colElement = document.createElement('div');
-        colElement.classList.add('column');
-        for (let j=0; j < 2; j++) { 
-          pipElement = document.createElement('span');
-          pipElement.classList.add('pip');
-          colElement.appendChild(pipElement);
-        }
-        diceElement.appendChild(colElement);
-      } 
+      */
       break;
 
     case 1:
