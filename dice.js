@@ -135,6 +135,8 @@ rollBtn.addEventListener("click", function() {
     }
     player1Dice.appendChild(dieFace);
     player1Score += randomNumber;
+    player2ScoreBoard.classList.remove("newestScore");
+    player1ScoreBoard.classList.add("newestScore");
     player1ScoreBoard.textContent = player1Score;
     player1Dice.classList.remove("active");
     player2Dice.classList.add("active");
@@ -147,6 +149,8 @@ rollBtn.addEventListener("click", function() {
     }
     player2Dice.appendChild(dieFace);
     player2Score += randomNumber;
+    player1ScoreBoard.classList.remove("newestScore");
+    player2ScoreBoard.classList.add("newestScore")
     player2ScoreBoard.textContent = player2Score;
     player2Dice.classList.remove("active");
     player1Dice.classList.add("active");
